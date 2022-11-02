@@ -1,9 +1,9 @@
-import { signInWithGooglePopup } from '../../utils'
+import { signInWithGooglePopup, createUserDocumentFromAutr } from '../../utils'
 
 export const SingIn = () => {
   const logGoogleUser = async () => {
-    const response = await signInWithGooglePopup()
-    console.log(response)
+    const { user } = await signInWithGooglePopup()
+    createUserDocumentFromAutr(user)
   }
   return (
     <div>
