@@ -1,1 +1,5 @@
-export { signInWithGooglePopup, createUserDocumentFromAutr } from './firebase/firebase.utils'
+export {
+  signInWithGooglePopup,
+  createUserDocumentFromAuth,
+  createAuthUserWithEmailAndPassword
+} from './firebase/firebase.utils'
