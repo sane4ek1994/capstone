@@ -5,6 +5,8 @@ export const SingIn = () => {
   const logGoogleUser = async () => {
     const { user } = await signInWithGooglePopup()
     const userDocRef = await createUserDocumentFromAuth(user)
+
+    console.log(userDocRef)
   }
 
   return (
