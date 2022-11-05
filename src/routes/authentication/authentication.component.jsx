@@ -1,9 +1,10 @@
 import { SingUpForm, SingInForm } from '../../components'
 
+import './authentication.styles.scss'
+
 export const Authentication = () => {
   return (
-    <div>
-      <h1>Sing in Page</h1>
+    <div className='authentication-container'>
       <SingInForm />
       <SingUpForm />
     </div>

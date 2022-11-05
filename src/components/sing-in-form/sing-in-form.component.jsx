@@ -30,7 +30,18 @@ export const SingInForm = () => {
       const response = await singInAuthUserWithEmailAndPassword(email, password)
       console.log(response)
       resetFormFields()
-    } catch (error) {}
+    } catch (error) {
+      switch (error.code) {
+        case 'auth/wrong-password':
+          alert('incorrect password for email')
+          break
+        case 'auth/user-not-found':
+          alert('User is not found')
+          break
+        default:
+          console.log(error)
+      }
+    }
   }
 
   const handleChange = event => {
@@ -47,7 +58,7 @@ export const SingInForm = () => {
         <FormInput label='Password' type='password' name='password' required onChange={handleChange} value={password} />
         <div className='buttons-container'>
           <Button type='submit'>Sing In</Button>
-          <Button buttonType='google' onClick={singInWithGoogle}>
+          <Button type='button' buttonType='google' onClick={singInWithGoogle}>
             Google sing in
           </Button>
         </div>
