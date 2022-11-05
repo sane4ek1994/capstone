@@ -1,5 +1,5 @@
-import React from 'react'
-import { FormInput, Button } from '../../components'
+import { useState } from 'react'
+import { FormInput, Button } from '..'
 import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from '../../utils'
 
 import './sing-up.styles.scss'
@@ -11,8 +11,8 @@ const defaultFormFields = {
   confirmPassword: ''
 }
 
-export const SingInForm = () => {
-  const [formFields, setFormFields] = React.useState(defaultFormFields)
+export const SingUpForm = () => {
+  const [formFields, setFormFields] = useState(defaultFormFields)
   const { displayName, email, password, confirmPassword } = formFields
 
   const resetFormFields = () => {

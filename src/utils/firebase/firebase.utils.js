@@ -1,5 +1,11 @@
 import { initializeApp } from 'firebase/app'
-import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword } from 'firebase/auth'
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword
+} from 'firebase/auth'
 import { getFirestore, doc, setDoc, getDoc } from 'firebase/firestore'
 
 const firebaseConfig = {
@@ -12,8 +18,7 @@ const firebaseConfig = {
   measurementId: 'G-M6HKFPEPTG'
 }
 
-const firebaseApp = initializeApp(firebaseConfig)
-console.log(firebaseApp)
+initializeApp(firebaseConfig)
 
 const provider = new GoogleAuthProvider()
 provider.setCustomParameters({
@@ -54,4 +59,10 @@ export const createAuthUserWithEmailAndPassword = async (email, password) => {
   if (!email || !password) return
 
   return await createUserWithEmailAndPassword(auth, email, password)
+}
+
+export const singInAuthUserWithEmailAndPassword = async (email, password) => {
+  if (!email || !password) return
+
+  return await signInWithEmailAndPassword(auth, email, password)
 }

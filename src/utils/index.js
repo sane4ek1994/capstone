@@ -1,5 +1,6 @@
 export {
   signInWithGooglePopup,
   createUserDocumentFromAuth,
-  createAuthUserWithEmailAndPassword
+  createAuthUserWithEmailAndPassword,
+  singInAuthUserWithEmailAndPassword
 } from './firebase/firebase.utils'
