@@ -1,2 +1,6 @@
 export { CategoryItem } from './category-item/category-item.component'
 export { Directory } from './directory/directory.component'
+export { SingUpForm } from './sing-up-form/sing-up-form-component'
+export { FormInput } from './form-input/form-input.component'
+export { Button } from './button/button.component'
+export { SingInForm } from './sing-in-form/sing-in-form.component'

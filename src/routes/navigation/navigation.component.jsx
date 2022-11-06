@@ -14,7 +14,7 @@ export const Navigation = () => {
           <Link className='nav-link' to='/shop'>
             shop
           </Link>
-          <Link className='nav-link' to='/sing-in'>
+          <Link className='nav-link' to='/auth'>
             sing in
           </Link>
         </div>
