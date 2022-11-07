@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { FormInput, Button } from '..'
+
+import { FormInput, Button } from '../index'
 import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from '../../utils'
 
 import './sing-up.styles.scss'
