@@ -19,16 +19,14 @@ export const SingInForm = () => {
   }
 
   const singInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup()
-    await createUserDocumentFromAuth(user)
+    await signInWithGooglePopup()
   }
 
   const handleSubmit = async event => {
     event.preventDefault()
 
     try {
-      const response = await singInAuthUserWithEmailAndPassword(email, password)
-      console.log(response)
+      await singInAuthUserWithEmailAndPassword(email, password)
       resetFormFields()
     } catch (error) {
       switch (error.code) {

@@ -2,5 +2,7 @@ export {
   signInWithGooglePopup,
   createUserDocumentFromAuth,
   createAuthUserWithEmailAndPassword,
-  singInAuthUserWithEmailAndPassword
+  singInAuthUserWithEmailAndPassword,
+  singOutUser,
+  onAuthStateChangedListener
 } from './firebase/firebase.utils'

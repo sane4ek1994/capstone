@@ -1,9 +1,15 @@
+import { useContext } from 'react'
 import { Outlet, Link } from 'react-router-dom'
+
+import { UserContex } from '../../contexts/user.context'
+import { singOutUser } from '../../utils'
 
 import { ReactComponent as CrwnLogo } from '../../assets/img/crown.svg'
 import './navigation.styles.scss'
 
 export const Navigation = () => {
+  const { currentUser } = useContext(UserContex)
+
   return (
     <>
       <div className='navigation'>
@@ -14,9 +20,15 @@ export const Navigation = () => {
           <Link className='nav-link' to='/shop'>
             shop
           </Link>
-          <Link className='nav-link' to='/auth'>
-            sing in
-          </Link>
+          {currentUser ? (
+            <span className='nav-link' onClick={singOutUser}>
+              sing out
+            </span>
+          ) : (
+            <Link className='nav-link' to='/auth'>
+              sing in
+            </Link>
+          )}
         </div>
       </div>
       <Outlet />
