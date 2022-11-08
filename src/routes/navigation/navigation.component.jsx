@@ -13,7 +13,9 @@ import './navigation.styles.scss'
 
 export const Navigation = () => {
   const { currentUser } = useContext(UserContex)
-  const { isCartOpen } = useContext(CartContext)
+  const { isCartOpen, setIsCartOpen } = useContext(CartContext)
+
+  const toogleIsCartOpen = () => setIsCartOpen(!isCartOpen)
 
   return (
     <>
@@ -34,7 +36,7 @@ export const Navigation = () => {
               sing in
             </Link>
           )}
-          <CartIcon />
+          <CartIcon toogleIsCartOpen={toogleIsCartOpen} />
         </div>
         {isCartOpen && <CartDropdown />}
       </div>
