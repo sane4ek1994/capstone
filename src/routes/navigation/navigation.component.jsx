@@ -15,7 +15,7 @@ export const Navigation = () => {
   const { currentUser } = useContext(UserContex)
   const { isCartOpen, setIsCartOpen } = useContext(CartContext)
 
-  const toogleIsCartOpen = () => setIsCartOpen(!isCartOpen)
+  const toggleIsCartOpen = () => setIsCartOpen(!isCartOpen)
 
   return (
     <>
@@ -36,7 +36,7 @@ export const Navigation = () => {
               sing in
             </Link>
           )}
-          <CartIcon toogleIsCartOpen={toogleIsCartOpen} />
+          <CartIcon toggleIsCartOpen={toggleIsCartOpen} />
         </div>
         {isCartOpen && <CartDropdown />}
       </div>
