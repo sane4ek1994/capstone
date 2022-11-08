@@ -1,6 +1,10 @@
 import { useContext } from 'react'
 import { Outlet, Link } from 'react-router-dom'
 
+import { CartIcon } from '../../components'
+import { CartDropdown } from '../../components'
+
+import { CartContext } from '../../contexts/cart.context'
 import { UserContex } from '../../contexts/user.context'
 import { singOutUser } from '../../utils'
 
@@ -9,6 +13,9 @@ import './navigation.styles.scss'
 
 export const Navigation = () => {
   const { currentUser } = useContext(UserContex)
+  const { isCartOpen, setIsCartOpen } = useContext(CartContext)
+
+  const toggleIsCartOpen = () => setIsCartOpen(!isCartOpen)
 
   return (
     <>
@@ -29,7 +36,9 @@ export const Navigation = () => {
               sing in
             </Link>
           )}
+          <CartIcon toggleIsCartOpen={toggleIsCartOpen} />
         </div>
+        {isCartOpen && <CartDropdown />}
       </div>
       <Outlet />
     </>

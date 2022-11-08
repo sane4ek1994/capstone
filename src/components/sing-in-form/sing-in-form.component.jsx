@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 import { FormInput, Button } from '../../components'
-import { singInAuthUserWithEmailAndPassword, createUserDocumentFromAuth, signInWithGooglePopup } from '../../utils'
+import { singInAuthUserWithEmailAndPassword, signInWithGooglePopup } from '../../utils'
 
 import './sing-in-form.styles.scss'
 
