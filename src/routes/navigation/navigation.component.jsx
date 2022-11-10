@@ -1,8 +1,7 @@
 import { useContext } from 'react'
 import { Outlet, Link } from 'react-router-dom'
 
-import { CartIcon } from '../../components'
-import { CartDropdown } from '../../components'
+import { CartIcon, CartDropdown } from '../../components'
 
 import { CartContext } from '../../contexts/cart.context'
 import { UserContex } from '../../contexts/user.context'
