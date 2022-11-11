@@ -5,5 +5,6 @@ export {
   singInAuthUserWithEmailAndPassword,
   singOutUser,
   onAuthStateChangedListener,
-  addCollectionAndDocument
+  addCollectionAndDocument,
+  getCategoriesAndDocument
 } from './firebase/firebase.utils'
