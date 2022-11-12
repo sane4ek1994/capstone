@@ -9,11 +9,9 @@ export const CategoryPreview = ({ title, product }) => {
         <span className='title'>{title.toUpperCase()}</span>
       </h2>
       <div className='preview'>
-        {product
-          .filter((_, idx) => idx < 4)
-          .map(product => (
-            <ProductCard key={product.id} product={product} />
-          ))}
+        {product.slice(0, 4).map(product => (
+          <ProductCard key={product.id} product={product} />
+        ))}
       </div>
     </div>
   )
