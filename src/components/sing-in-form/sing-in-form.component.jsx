@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { FormInput, Button } from '../../components'
+import { FormInput, Button, BUTTON_TYPE_CLASSES } from '../../components'
 import { singInAuthUserWithEmailAndPassword, signInWithGooglePopup } from '../../utils'
 
 import './sing-in-form.styles.scss'
@@ -56,7 +56,7 @@ export const SingInForm = () => {
         <FormInput label='Password' type='password' name='password' required onChange={handleChange} value={password} />
         <div className='buttons-container'>
           <Button type='submit'>Sing In</Button>
-          <Button type='button' buttonType='google' onClick={singInWithGoogle}>
+          <Button type='button' buttonType={BUTTON_TYPE_CLASSES.google} onClick={singInWithGoogle}>
             Google sing in
           </Button>
         </div>

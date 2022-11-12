@@ -49,7 +49,7 @@ export const SingUpForm = () => {
 
   return (
     <div className='sing-up-container'>
-      <h2>Don't have an account?</h2>
+      <h2 className='sing-up-title'>Don't have an account?</h2>
       <span> Sing in with your email and passworld</span>
       <form onSubmit={handleSubmit}>
         <FormInput
