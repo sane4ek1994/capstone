@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { FormInput, Button } from '../index'
 import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from '../../utils'
 
-import './sing-up.styles.scss'
+import { SingContainer, SingTitle } from './sing.styles.jsx'
 
 const defaultFormFields = {
   displayName: '',
@@ -48,8 +48,8 @@ export const SingUpForm = () => {
   }
 
   return (
-    <div className='sing-up-container'>
-      <h2 className='sing-up-title'>Don't have an account?</h2>
+    <SingContainer>
+      <SingTitle>Don't have an account?</SingTitle>
       <span> Sing in with your email and passworld</span>
       <form onSubmit={handleSubmit}>
         <FormInput
@@ -73,6 +73,6 @@ export const SingUpForm = () => {
         />
         <Button type='submit'>Sing Up</Button>
       </form>
-    </div>
+    </SingContainer>
   )
 }
