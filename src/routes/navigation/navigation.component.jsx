@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { Outlet, Link } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 
 import { CartIcon, CartDropdown } from '../../components'
 
@@ -8,7 +8,7 @@ import { UserContex } from '../../contexts/user.context'
 import { singOutUser } from '../../utils'
 
 import { ReactComponent as CrwnLogo } from '../../assets/img/crown.svg'
-import './navigation.styles.scss'
+import { NavigationContainer, LogoContainer, NavLinksContainer, NavLink } from './navigation.styles'
 
 export const Navigation = () => {
   const { currentUser } = useContext(UserContex)
@@ -18,27 +18,23 @@ export const Navigation = () => {
 
   return (
     <>
-      <div className='navigation'>
-        <Link className='logo-container ' to='/'>
-          <CrwnLogo className='logo' />
-        </Link>
-        <div className='nav-links-container'>
-          <Link className='nav-link' to='/shop'>
-            shop
-          </Link>
+      <NavigationContainer>
+        <LogoContainer to='/'>
+          <CrwnLogo />
+        </LogoContainer>
+        <NavLinksContainer>
+          <NavLink to='/shop'>shop</NavLink>
           {currentUser ? (
-            <span className='nav-link' onClick={singOutUser}>
+            <NavLink as='span' onClick={singOutUser}>
               sing out
-            </span>
+            </NavLink>
           ) : (
-            <Link className='nav-link' to='/auth'>
-              sing in
-            </Link>
+            <NavLink to='/auth'>sing in</NavLink>
           )}
           <CartIcon cartCount={cartCount} toggleIsCartOpen={toggleIsCartOpen} />
-        </div>
+        </NavLinksContainer>
         {isCartOpen && <CartDropdown />}
-      </div>
+      </NavigationContainer>
       <Outlet />
     </>
   )
