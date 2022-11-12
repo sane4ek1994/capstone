@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
 
 export const BackgroundImage = styled.div`
   width: 100%;
@@ -35,7 +34,7 @@ export const Body = styled.div`
   }
 `
 
-export const DirectoryItemContainer = styled(Link)`
+export const DirectoryItemContainer = styled.div`
   min-width: 30%;
   height: 240px;
   flex: 1 1 auto;
