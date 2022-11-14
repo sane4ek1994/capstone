@@ -8,3 +8,5 @@ export {
   addCollectionAndDocument,
   getCategoriesAndDocument
 } from './firebase/firebase.utils'
+
+export { createAction } from './reducer/reducer.utils'
