@@ -1,9 +1,9 @@
 import { useState } from 'react'
 
-import { FormInput, Button } from '../../components'
+import { FormInput, Button, BUTTON_TYPE_CLASSES } from '../../components'
 import { singInAuthUserWithEmailAndPassword, signInWithGooglePopup } from '../../utils'
 
-import './sing-in-form.styles.scss'
+import { SingContainer, SingTitle, ButtonsContainer } from '../sing-up-form/sing.styles'
 
 const defaultFormFields = {
   email: '',
@@ -48,19 +48,19 @@ export const SingInForm = () => {
   }
 
   return (
-    <div className='sing-up-container'>
-      <h2>Already have an account?</h2>
+    <SingContainer>
+      <SingTitle>Already have an account?</SingTitle>
       <span> Sing in with your email and passworld</span>
       <form onSubmit={handleSubmit}>
         <FormInput label='email' type='email' name='email' required onChange={handleChange} value={email} />
         <FormInput label='Password' type='password' name='password' required onChange={handleChange} value={password} />
-        <div className='buttons-container'>
+        <ButtonsContainer>
           <Button type='submit'>Sing In</Button>
-          <Button type='button' buttonType='google' onClick={singInWithGoogle}>
+          <Button type='button' buttonType={BUTTON_TYPE_CLASSES.google} onClick={singInWithGoogle}>
             Google sing in
           </Button>
-        </div>
+        </ButtonsContainer>
       </form>
-    </div>
+    </SingContainer>
   )
 }
