@@ -1,17 +1,19 @@
 import { useContext } from 'react'
 import { Outlet } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 import { CartIcon, CartDropdown } from '../../components'
 
 import { CartContext } from '../../contexts/cart.context'
-import { UserContex } from '../../contexts/user.context'
-import { singOutUser } from '../../utils'
 
+import { selectCurrentUser } from '../../store/user/user.selectors'
+
+import { singOutUser } from '../../utils'
 import { ReactComponent as CrwnLogo } from '../../assets/img/crown.svg'
 import { NavigationContainer, LogoContainer, NavLinksContainer, NavLink } from './navigation.styles'
 
 export const Navigation = () => {
-  const { currentUser } = useContext(UserContex)
+  const currentUser = useSelector(selectCurrentUser)
   const { isCartOpen, setIsCartOpen, cartCount } = useContext(CartContext)
 
   const toggleIsCartOpen = () => setIsCartOpen(!isCartOpen)
