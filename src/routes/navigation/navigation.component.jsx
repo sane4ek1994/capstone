@@ -1,20 +1,19 @@
-import { useContext } from 'react'
 import { Outlet } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 import { CartIcon, CartDropdown } from '../../components'
 
-import { CartContext } from '../../contexts/cart.context'
-import { UserContex } from '../../contexts/user.context'
-import { singOutUser } from '../../utils'
+import { selectIsCartOpen } from '../../store/cart/cart.selectors'
 
+import { selectCurrentUser } from '../../store/user/user.selectors'
+
+import { singOutUser } from '../../utils'
 import { ReactComponent as CrwnLogo } from '../../assets/img/crown.svg'
 import { NavigationContainer, LogoContainer, NavLinksContainer, NavLink } from './navigation.styles'
 
 export const Navigation = () => {
-  const { currentUser } = useContext(UserContex)
-  const { isCartOpen, setIsCartOpen, cartCount } = useContext(CartContext)
-
-  const toggleIsCartOpen = () => setIsCartOpen(!isCartOpen)
+  const currentUser = useSelector(selectCurrentUser)
+  const isCartOpen = useSelector(selectIsCartOpen)
 
   return (
     <>
@@ -31,7 +30,7 @@ export const Navigation = () => {
           ) : (
             <NavLink to='/auth'>sing in</NavLink>
           )}
-          <CartIcon cartCount={cartCount} toggleIsCartOpen={toggleIsCartOpen} />
+          <CartIcon />
         </NavLinksContainer>
         {isCartOpen && <CartDropdown />}
       </NavigationContainer>
