@@ -3,16 +3,17 @@ import { useDispatch } from 'react-redux'
 import { Routes, Route } from 'react-router-dom'
 import { CategoriesPreview, Category } from '../../routes'
 import { getCategoriesAndDocument } from '../../utils'
-import { setCategoriesMap } from '../../store/categories/categories.action'
+import { setCategories } from '../../store/categories/categories.action'
 
 import './shop.styles.scss'
 
 export const Shop = () => {
   const dispatch = useDispatch()
+
   useEffect(() => {
     const getCategoriesMap = async () => {
-      const categoryMap = await getCategoriesAndDocument()
-      dispatch(setCategoriesMap(categoryMap))
+      const categoryArray = await getCategoriesAndDocument()
+      dispatch(setCategories(categoryArray))
     }
 
     getCategoriesMap()
