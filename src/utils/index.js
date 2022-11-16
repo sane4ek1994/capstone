@@ -6,7 +6,7 @@ export {
   singOutUser,
   onAuthStateChangedListener,
   addCollectionAndDocument,
-  getCategoriesAndDocument
+  getCategoriesAndDocuments
 } from './firebase/firebase.utils'
 
 export { createAction } from './reducer/reducer.utils'

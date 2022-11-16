@@ -44,7 +44,7 @@ export const addCollectionAndDocument = async (collectionKey, objectsToAdd, fiel
   await batch.commit()
 }
 
-export const getCategoriesAndDocument = async () => {
+export const getCategoriesAndDocuments = async () => {
   const collectionRef = collection(db, 'categories')
   const q = query(collectionRef)
 
