@@ -1,24 +1,16 @@
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { Routes, Route } from 'react-router-dom'
-import { onAuthStateChangedListener, createUserDocumentFromAuth } from './utils'
 
 import { Home, Navigation, Authentication, Shop, Checkout } from './routes'
-import { setCurrentUser } from './store/user/user.action'
+import { checkUserSession } from './store/user/user.action'
 
 const App = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChangedListener(user => {
-      if (user) {
-        createUserDocumentFromAuth(user)
-      }
-      dispatch(setCurrentUser(user))
-    })
-
-    return unsubscribe
-  }, [dispatch])
+    dispatch(checkUserSession())
+  }, [])
 
   return (
     <Routes>
