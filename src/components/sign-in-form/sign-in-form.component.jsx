@@ -1,16 +1,18 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 
-import { FormInput, Button, BUTTON_TYPE_CLASSES } from '../../components'
-import { singInAuthUserWithEmailAndPassword, signInWithGooglePopup } from '../../utils'
+import { FormInput, Button, BUTTON_TYPE_CLASSES } from '..'
 
-import { SingContainer, SingTitle, ButtonsContainer } from '../sing-up-form/sing.styles'
+import { SignContainer, SignTitle, ButtonsContainer } from '../sign-up-form/sign.styles'
+import { googleSignInStart, emailSignInStart } from '../../store/user/user.action'
 
 const defaultFormFields = {
   email: '',
   password: ''
 }
 
-export const SingInForm = () => {
+export const SignInForm = () => {
+  const dispatch = useDispatch()
   const [formFields, setFormFields] = useState(defaultFormFields)
   const { email, password } = formFields
 
@@ -18,15 +20,15 @@ export const SingInForm = () => {
     setFormFields(defaultFormFields)
   }
 
-  const singInWithGoogle = async () => {
-    await signInWithGooglePopup()
+  const signInWithGoogle = async () => {
+    dispatch(googleSignInStart())
   }
 
   const handleSubmit = async event => {
     event.preventDefault()
 
     try {
-      await singInAuthUserWithEmailAndPassword(email, password)
+      dispatch(emailSignInStart(email, password))
       resetFormFields()
     } catch (error) {
       switch (error.code) {
@@ -48,19 +50,19 @@ export const SingInForm = () => {
   }
 
   return (
-    <SingContainer>
-      <SingTitle>Already have an account?</SingTitle>
-      <span> Sing in with your email and passworld</span>
+    <SignContainer>
+      <SignTitle>Already have an account?</SignTitle>
+      <span> Sign in with your email and passworld</span>
       <form onSubmit={handleSubmit}>
         <FormInput label='email' type='email' name='email' required onChange={handleChange} value={email} />
         <FormInput label='Password' type='password' name='password' required onChange={handleChange} value={password} />
         <ButtonsContainer>
-          <Button type='submit'>Sing In</Button>
-          <Button type='button' buttonType={BUTTON_TYPE_CLASSES.google} onClick={singInWithGoogle}>
-            Google sing in
+          <Button type='submit'>Sign In</Button>
+          <Button type='button' buttonType={BUTTON_TYPE_CLASSES.google} onClick={signInWithGoogle}>
+            Google sign in
           </Button>
         </ButtonsContainer>
       </form>
-    </SingContainer>
+    </SignContainer>
   )
 }
