@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
-export const SingContainer = styled.div`
+export const SignContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 380px;
 `
 
-export const SingTitle = styled.h2`
+export const SignTitle = styled.h2`
   margin: 10px 0;
 `
 
