@@ -11,3 +11,4 @@ export {
 } from './firebase/firebase.utils'
 
 export { createAction } from './reducer/reducer.utils'
+export { stripePromise } from './stripe/stripe.utils'
