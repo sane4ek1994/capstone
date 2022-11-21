@@ -10,5 +10,5 @@ export {
   getCurrentUser
 } from './firebase/firebase.utils'
 
-export { createAction } from './reducer/reducer.utils'
+export { createAction, Action, ActionWithPayload } from './reducer/reducer.utils'
 export { stripePromise } from './stripe/stripe.utils'
