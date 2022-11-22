@@ -3,7 +3,7 @@ import { CART_ACTIONS_TYPES, CartItem } from './cart.types'
 import { createAction, withMatcher, Action, ActionWithPayload } from '../../utils'
 
 const addCartItem = (cartItems: CartItem[], productToAdd: CategoryItem): CartItem[] => {
-  const existingCartItem = cartItems.find(cartItem => cartItem.id === productToAdd.id)
+  const existingCartItem = cartItems.some(cartItem => cartItem.id === productToAdd.id)
 
   if (existingCartItem) {
     return cartItems.map(cartItem =>
@@ -14,18 +14,15 @@ const addCartItem = (cartItems: CartItem[], productToAdd: CategoryItem): CartIte
   return [...cartItems, { ...productToAdd, quantity: 1 }]
 }
 
-const removeCartItem = (cartItems: CartItem[], cartItemToRemove: CartItem): CartItem[] => {
+const removeCartItem = (cartItems: CartItem[], cartItemToRemove: CategoryItem): CartItem[] => {
   const existingCartItem = cartItems.find(cartItem => cartItem.id === cartItemToRemove.id)
 
   if (existingCartItem && existingCartItem.quantity === 1) {
     return cartItems.filter(cartItem => cartItem.id !== cartItemToRemove.id)
   }
-
-  if (existingCartItem) {
-    return cartItems.map(cartItem =>
-      cartItem.id === cartItemToRemove.id ? { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem
-    )
-  }
+  return cartItems.map(cartItem =>
+    cartItem.id === cartItemToRemove.id ? { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem
+  )
 }
 
 const clearCartItem = (cartItems: CartItem[], cartItemToClear: CartItem): CartItem[] => {
