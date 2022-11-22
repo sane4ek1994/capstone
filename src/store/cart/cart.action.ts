@@ -20,12 +20,9 @@ const removeCartItem = (cartItems: CartItem[], cartItemToRemove: CartItem): Cart
   if (existingCartItem && existingCartItem.quantity === 1) {
     return cartItems.filter(cartItem => cartItem.id !== cartItemToRemove.id)
   }
-
-  if (existingCartItem) {
-    return cartItems.map(cartItem =>
-      cartItem.id === cartItemToRemove.id ? { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem
-    )
-  }
+  return cartItems.map(cartItem =>
+    cartItem.id === cartItemToRemove.id ? { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem
+  )
 }
 
 const clearCartItem = (cartItems: CartItem[], cartItemToClear: CartItem): CartItem[] => {
