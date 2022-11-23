@@ -7,7 +7,9 @@ export {
   onAuthStateChangedListener,
   addCollectionAndDocument,
   getCategoriesAndDocuments,
-  getCurrentUser
+  getCurrentUser,
+  UserData,
+  AdditionalInformation
 } from './firebase/firebase.utils'
 
 export { createAction, Action, ActionWithPayload, withMatcher } from './reducer/reducer.utils'
