@@ -7,10 +7,8 @@ export {
   onAuthStateChangedListener,
   addCollectionAndDocument,
   getCategoriesAndDocuments,
-  getCurrentUser,
-  UserData,
-  AdditionalInformation
+  getCurrentUser
 } from './firebase/firebase.utils'
 
-export { createAction, Action, ActionWithPayload, withMatcher } from './reducer/reducer.utils'
+export { createAction, withMatcher } from './reducer/reducer.utils'
 export { stripePromise } from './stripe/stripe.utils'

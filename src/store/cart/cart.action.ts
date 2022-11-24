@@ -1,6 +1,7 @@
 import { CategoryItem } from '../categories/categories.types'
 import { CART_ACTIONS_TYPES, CartItem } from './cart.types'
-import { createAction, withMatcher, ActionWithPayload } from '../../utils'
+import { ActionWithPayload } from '../../utils/reducer/reducer.utils'
+import { createAction, withMatcher } from '../../utils'
 
 const addCartItem = (cartItems: CartItem[], productToAdd: CategoryItem): CartItem[] => {
   const existingCartItem = cartItems.some(cartItem => cartItem.id === productToAdd.id)
