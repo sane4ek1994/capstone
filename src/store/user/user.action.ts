@@ -1,5 +1,7 @@
 import { USER_ACTION_TYPES } from './users.types'
-import { createAction, withMatcher, UserData, Action, ActionWithPayload, AdditionalInformation } from '../../utils'
+import { UserData, AdditionalInformation } from '../../utils/firebase/firebase.utils'
+import { Action, ActionWithPayload } from '../../utils/reducer/reducer.utils'
+import { createAction, withMatcher } from '../../utils'
 
 export type CheckUserSession = Action<USER_ACTION_TYPES.CHECK_USER_SESSION>
 export type SignOutStart = Action<USER_ACTION_TYPES.SIGN_OUT_START>
@@ -23,6 +25,7 @@ export type SignUpSuccess = ActionWithPayload<
   { user: UserData; additionalDetails: AdditionalInformation }
 >
 
+// export const checkUserSession = withMatcher((): CheckUserSession => createAction(USER_ACTION_TYPES.CHECK_USER_SESSION))
 export const checkUserSession = withMatcher((): CheckUserSession => createAction(USER_ACTION_TYPES.CHECK_USER_SESSION))
 
 export const setCurrentUser = withMatcher(
