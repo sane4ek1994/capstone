@@ -40,6 +40,7 @@ export function* signInWithEmail({ payload: { email, password } }: EmailSignInSt
     const userCredential = yield* call(signInAuthUserWithEmailAndPassword, email, password)
     if (userCredential) {
       const { user } = userCredential
+
       yield* call(getSnapshotFromUserAuth, user)
     }
   } catch (error) {
