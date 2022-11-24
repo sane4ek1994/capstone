@@ -89,7 +89,7 @@ export function* signOut() {
 }
 
 export function* signInAftersSignUp({ payload: { user, additionalDetails } }: SignUpSuccess) {
-  yield* takeLatest(getSnapshotFromUserAuth, user, additionalDetails)
+  yield* call(getSnapshotFromUserAuth, user, additionalDetails)
 }
 
 export function* onGoogleSignInStart() {
