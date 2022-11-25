@@ -26,7 +26,6 @@ export type SignUpSuccess = ActionWithPayload<
   { user: User; additionalDetails: AdditionalInformation }
 >
 
-// export const checkUserSession = withMatcher((): CheckUserSession => createAction(USER_ACTION_TYPES.CHECK_USER_SESSION))
 export const checkUserSession = withMatcher((): CheckUserSession => createAction(USER_ACTION_TYPES.CHECK_USER_SESSION))
 
 export const setCurrentUser = withMatcher(
