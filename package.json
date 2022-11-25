@@ -55,6 +55,7 @@
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.9",
     "@types/redux-logger": "^3.0.9",
+    "@types/styled-components": "^5.1.26",
     "dotenv": "^16.0.3",
     "netlify-cli": "^12.2.6",
     "sass": "^1.56.1",
