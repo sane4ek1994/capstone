@@ -4,6 +4,8 @@ import { Routes, Route } from 'react-router-dom'
 import { Spinner } from './components'
 import { checkUserSession } from './store/user/user.action'
 
+import './App.scss'
+
 const Shop = lazy(() =>
   import('./routes').then(module => ({
     default: module.Shop

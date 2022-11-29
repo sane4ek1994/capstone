@@ -39,6 +39,10 @@ export const Input = styled.input`
   border-bottom: 1px solid ${subColor};
   margin: 25px 0;
 
+  @media screen and (max-width: 800px) {
+    margin: 10px 0;
+  }
+
   &:focus {
     outline: none;
   }
