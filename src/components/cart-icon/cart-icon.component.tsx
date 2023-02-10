@@ -20,8 +20,19 @@ export const CartIcon = () => {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
+      // const _event = event as PopupClick
+      // if (cartRef.current && !_event.path.includes(cartRef.current)) {
+      //   dispatch(setIsCartOpen(false))
+      // }
+      const cartNode = cartRef.current
+      if (!cartNode) return
       const _event = event as PopupClick
-      if (cartRef.current && !_event.path.includes(cartRef.current)) {
+      const path = _event.path || _event.composedPath?.()
+      const isClickOutside = path.includes(cartNode)
+
+      console.log(path)
+
+      if (!isClickOutside) {
         dispatch(setIsCartOpen(false))
       }
     }
